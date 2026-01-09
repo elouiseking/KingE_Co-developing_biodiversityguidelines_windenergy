@@ -1,0 +1,180 @@
+round,cluster,no_of_codes,manual_theme
+1,Policy and Governance Gaps,5,Policy and Governance Gaps
+1,Monitoring and Data Management,5,Monitoring and Data Management
+1,Restoration and Biodiversity Measures,5,Restoration and Habitat Management
+1,Planning and Development Constraints,5,"Planning, Development, and Operational Constraints"
+1,Scientific and Technical Standards,4,Technical and Conceptual Clarity
+1,Climate and Energy Policy Context,3,Climate-Biodiversity Nexus
+1,Incentives and Stakeholder Engagement,3,Landowner Engagement and Lease Agreements
+2,Policy and Governance Gaps,3,Policy and Governance Gaps
+2,Monitoring and Resource Allocation,3,Monitoring and Data Management
+2,Land Use and Legal Instruments,3,Landowner Engagement and Lease Agreements
+2,Restoration and Habitat Management,3,Restoration and Habitat Management
+2,Biodiversity Net Gain (BNG),2,Biodiversity-Planning Integration
+2,Public Participation and Data Use,1,Monitoring and Data Management
+2,Terminology and Communication,1,Technical and Conceptual Clarity
+2,Climate-Biodiversity Nexus,1,Climate-Biodiversity Nexus
+2,Innovation and Futureproofing,1,Biodiversity-Planning Integration
+2,Operational Constraints,1,"Planning, Development, and Operational Constraints"
+3,Policy and Governance Gaps,3,Policy and Governance Gaps
+3,Monitoring and Resource Allocation,4,Monitoring and Data Management
+3,Land Use and Legal Instruments,4,Landowner Engagement and Lease Agreements
+3,Restoration and Habitat Management,3,Restoration and Habitat Management
+3,Biodiversity Net Gain (BNG),3,Biodiversity-Planning Integration
+3,Planning and EIA Effectiveness,3,"Planning, Development, and Operational Constraints"
+3,Terminology and Communication,2,Technical and Conceptual Clarity
+3,Climate-Biodiversity Nexus,2,Climate-Biodiversity Nexus
+3,Innovation and Futureproofing,1,Biodiversity-Planning Integration
+3,Operational Constraints,2,"Planning, Development, and Operational Constraints"
+4,Data Management and Policy,12,Monitoring and Data Management
+4,Tools and Monitoring,12,Monitoring and Data Management
+4,Restoration and Conservation,3,Restoration and Habitat Management
+4,Incentives and Engagement,3,Landowner Engagement and Lease Agreements
+5,Data & Monitoring,2,Monitoring and Data Management
+5,Restoration & Reinstatement,3,Restoration and Habitat Management
+5,"Financial Incentives, Lease & Agreements",2,Landowner Engagement and Lease Agreements
+5,"Methods, Rigor & Document Structure",1,Technical and Conceptual Clarity
+5,"Policy, Regulation & Planning Frameworks",2,Policy and Governance Gaps
+6,Policy and Governance Gaps,5,Policy and Governance Gaps
+6,Monitoring and Data Use,5,Monitoring and Data Management
+6,Planning and Development Constraints,5,"Planning, Development, and Operational Constraints"
+6,Restoration and Biodiversity Measures,5,Restoration and Habitat Management
+6,Strategic Integration and Future Directions,5,Biodiversity-Planning Integration
+7,Policy and Governance Gaps,4,Policy and Governance Gaps
+7,Monitoring and Data Use,4,Monitoring and Data Management
+7,Planning and Implementation Challenges,4,"Planning, Development, and Operational Constraints"
+7,Incentives and Landowners Engagement,4,Landowner Engagement and Lease Agreements
+7,Biodiversity Integration in Wind Energy,4,Climate-Biodiversity Nexus
+8,Policy and Governance Gaps,4,Policy and Governance Gaps
+8,Monitoring and Data Use,4,Monitoring and Data Management
+8,Restoration and Habitat Management,3,Restoration and Habitat Management
+8,Incentives and Land Agreements,3,Landowner Engagement and Lease Agreements
+8,Planning and EIA Frameworks ,3,"Planning, Development, and Operational Constraints"
+8,Strategic Vision and Climate Urgency,3,Climate-Biodiversity Nexus
+8,Biodiversity Net Gain (BNG) Approaches,2,Biodiversity-Planning Integration
+9,Climate and Energy Context ,4,Climate-Biodiversity Nexus
+9,Evaluation and Impact Assessment,4,Biodiversity-Planning Integration
+9,Incentives and Land Use Agreements,5,Landowner Engagement and Lease Agreements
+9,Monitoring and Data Management,5,Monitoring and Data Management
+9,Planning and Regulatory Complexity,5,"Planning, Development, and Operational Constraints"
+9,Policy and Governance Gaps,5,Policy and Governance Gaps
+9,Restoration and Biodiversity Measures,5,Restoration and Habitat Management
+10,Policy and Governance Gaps,10,Policy and Governance Gaps
+10,Planning and Regulatory Framework,10,"Planning, Development, and Operational Constraints"
+10,Monitoring and Data Use,12,Monitoring and Data Management
+10,BNG and Restoration Strategies,6,Biodiversity-Planning Integration
+10,"Land Use, Lease Agreements and Feasibility",5,Landowner Engagement and Lease Agreements
+10,Technical and Ecological Constraints,5,Technical and Conceptual Clarity
+10,Stakeholder Engagement and Communication,5,Landowner Engagement and Lease Agreements
+10,Conceptual and Structural Clarity,5,Technical and Conceptual Clarity
+11,Policy and Governance Gaps,5,Policy and Governance Gaps
+11,"Monitoring, Data, and Evaluation",5,Monitoring and Data Management
+11,Restoration and Biodiversity Enhancement,5,Restoration and Habitat Management
+11,"Planning, Land Use, and Feasibility",5,"Planning, Development, and Operational Constraints"
+11,Strategic Frameworks and Tools,5,Biodiversity-Planning Integration
+12,Policy and Governance Gaps,4,Policy and Governance Gaps
+12,Monitoring and Evaluation,4,Monitoring and Data Management
+12,Restoration and Habitat Management,3,Restoration and Habitat Management
+12,Incentives and Land Agreements,3,Landowner Engagement and Lease Agreements
+12,EIA and Biodiversity Integration,3,Biodiversity-Planning Integration
+12,Strategic Planning and Policy Alignment,3,Biodiversity-Planning Integration
+12,Biodiversity Net Gain (BNG) and Metrics,2,Biodiversity-Planning Integration
+12,Technical and Conceptual Clarity,3,Technical and Conceptual Clarity
+13,Policy and Planning ,38,Policy and Governance Gaps
+13,Monitoring and Evaluation,8,Monitoring and Data Management
+13,Incentives and Engagement,3,Landowner Engagement and Lease Agreements
+13,Funding and Resources,4,"Planning, Development, and Operational Constraints"
+13,Biodiversity Management,2,Restoration and Habitat Management
+14,Planning and Legal Frameworks,4,"Planning, Development, and Operational Constraints"
+14,Monitoring and Data Use,4,Monitoring and Data Management
+14,Policy and Governance Gaps,3,Policy and Governance Gaps
+14,Incentives and Landowner Engagement,3,Landowner Engagement and Lease Agreements
+14,Restoration and Habitat Management,3,Restoration and Habitat Management
+14,Biodiversity Net Gain (BNG) and Metrics,2,Biodiversity-Planning Integration
+14,Urgency and Climate-Biodiversity Nexus,2,Climate-Biodiversity Nexus
+15,Policy and Governance Gaps ,4,Policy and Governance Gaps
+15,Monitoring and Evalutation,4,Monitoring and Data Management
+15,Planning and Development Constraints,4,"Planning, Development, and Operational Constraints"
+15,Restoration and Habitat Management,3,Restoration and Habitat Management
+15,Biodiversity Net Gain (BNG),3,Biodiversity-Planning Integration
+15,Data and Evidence Infrastructure,2,Monitoring and Data Management
+15,Climate and Energy Transition,2,Climate-Biodiversity Nexus
+15,Stakeholder Engagement and Capacity,3,Landowner Engagement and Lease Agreements
+16,Incentives and Landowner Engagement,4,Landowner Engagement and Lease Agreements
+16,Monitoring and Evalutation Challenges,4,Monitoring and Data Management
+16,Policy and Governance Gaps,3,Policy and Governance Gaps
+16,Planning and Development Constraints,3,"Planning, Development, and Operational Constraints"
+16,Restoration and Habitat Management,3,Restoration and Habitat Management
+16,Biodiversity Net Gain (BNG) and Strategic Integration,3,Biodiversity-Planning Integration
+16,Technical and Scientific Considerations,3,Technical and Conceptual Clarity
+16,Urgency and Climate-Biodiversity Nexus,2,Climate-Biodiversity Nexus
+17,Policy and Governance Gaps,10,Policy and Governance Gaps
+17,Monitoring and Data Management ,12,Monitoring and Data Management
+17,"Incentives, Land Agreements, and Stakeholder Engagement",5,Landowner Engagement and Lease Agreements
+17,"Restoration, Reinstatement, Habitat Management",5,Restoration and Habitat Management
+17,"Planning, EIA, Regulatory Processes",5,"Planning, Development, and Operational Constraints"
+17,Biodiversity Net Gain (BNG) and Metrics,5,Biodiversity-Planning Integration
+17,Scientific and Technical Considerations,5,Technical and Conceptual Clarity
+17,Climate and Energy Context,4,Climate-Biodiversity Nexus
+17,Document Structure and Communication Clarity,4,Technical and Conceptual Clarity
+18,Policy and Governance Gaps,5,Policy and Governance Gaps
+18,Monitoring and Data Management,5,Monitoring and Data Management
+18,Planning and Development Constraints,4,"Planning, Development, and Operational Constraints"
+18,BNG and Restoration Strategies,5,Biodiversity-Planning Integration
+18,Scieentific Evidence and Technical Guidance,5,Technical and Conceptual Clarity
+18,Stakeholder Engagement and Incentivisation,4,Landowner Engagement and Lease Agreements
+18,Climate Change and Strategic Urgency,3,Climate-Biodiversity Nexus
+18,Planning Integration and Feasibility,3,"Planning, Development, and Operational Constraints"
+18,International Policy Influence and Best Practice,3,Policy and Governance Gaps
+19,Policy and Governance Gaps,4,Policy and Governance Gaps
+19,Monitoring and Evaluation,5,Monitoring and Data Management
+19,"Land Use, Leasing, and Restoration",5,Landowner Engagement and Lease Agreements
+19,Incentives and Stakeholder Engagement,3,Landowner Engagement and Lease Agreements
+19,Biodiversity Net Gain (BNG) and Strategic Planning,4,Biodiversity-Planning Integration
+19,Urgency and Climate-Biodiversity Nexus,3,Climate-Biodiversity Nexus
+20,Policy and Governance Gaps,4,Policy and Governance Gaps
+20,Monitoring and Data Management,4,Monitoring and Data Management
+20,Planning and Development Constraints,4,"Planning, Development, and Operational Constraints"
+20,BNG and Restoration Strategies,4,Biodiversity-Planning Integration
+20,Landowner Engagement and Incentives,4,Landowner Engagement and Lease Agreements
+20,Scientific Evidence and Technical Guidance,4,Technical and Conceptual Clarity
+20,Climate and Energy Transition Context ,3,Climate-Biodiversity Nexus
+20,Implementation Challenges and Recommendations,4,"Planning, Development, and Operational Constraints"
+20,Stakeholder Engagement and Communication,3,Landowner Engagement and Lease Agreements
+21,Policy and Governance Gaps,4,Policy and Governance Gaps
+21,Planning and Land Use Contraints,6,"Planning, Development, and Operational Constraints"
+21,Monitoring and Evaluation Challenges,5,Monitoring and Data Management
+21,Restoration and Habitat Management,4,Restoration and Habitat Management
+21,Biodiversity Net Gain (BNG) and Metrics,4,Biodiversity-Planning Integration
+21,Scientific and Technical Standards,4,Technical and Conceptual Clarity
+21,Sectoral Context and Climate Imperatives,4,Climate-Biodiversity Nexus
+22,Policy and Governance Gaps,4,Policy and Governance Gaps
+22,Planning and EIA Limitations,4,"Planning, Development, and Operational Constraints"
+22,Monitoring and Data Use,4,Monitoring and Data Management
+22,Incentives and Landowner Engagement,4,Landowner Engagement and Lease Agreements
+22,Restoration and Habitat Management,4,Restoration and Habitat Management
+22,Biodiversity Net Gain (BNG) and Metrics,3,Biodiversity-Planning Integration
+22,Climate Urgency and Strategic Alignment,3,Climate-Biodiversity Nexus
+22,Citizen Science and Public Data Use,2,Monitoring and Data Management
+22,Data Infrastructure and Standardisation,2,Monitoring and Data Management
+22,Framework Integration and Action Design,3,Biodiversity-Planning Integration
+23,Climate-Biodiversity Nexus,2,Climate-Biodiversity Nexus
+23,EIA and Biodiversity Integration,3,Biodiversity-Planning Integration
+23,Incentives and Enforcement Mechanisms,2,Landowner Engagement and Lease Agreements
+23,Monitoring and Data Management,4,Monitoring and Data Management
+23,Planning and Land Use Constraints,5,"Planning, Development, and Operational Constraints"
+23,Policy and Governance Gaps,4,Policy and Governance Gaps
+23,Restoration and Reinstatement Practices,3,Restoration and Habitat Management
+23,Strategic Biodiversity Planning ,3,Biodiversity-Planning Integration
+24,Policy and Governance,7,Policy and Governance Gaps
+24,Monitoring and Evaluation,6,Monitoring and Data Management
+24,Restoration and Habitat Management,6,Restoration and Habitat Management
+24,EIA and Planning Tools,6,Biodiversity-Planning Integration
+24,Incentives and Land Agreements,5,Landowner Engagement and Lease Agreements
+24,Strategic Planning and Innovation,5,Biodiversity-Planning Integration
+25,Policy and Governance Gaps,5,Policy and Governance Gaps
+25,Monitoring and Data Use ,5,Monitoring and Data Management
+25,Restoration and Habitat Management,4,Restoration and Habitat Management
+25,Incentives and Landowner Engagement,4,Landowner Engagement and Lease Agreements
+25,Planning and EIA Integration,4,"Planning, Development, and Operational Constraints"
+25,Urgency and Strategic Alignment,3,Climate-Biodiversity Nexus

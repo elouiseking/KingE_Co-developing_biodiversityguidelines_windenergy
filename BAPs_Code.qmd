@@ -1,0 +1,540 @@
+---
+title: "Ch3_BAPs"
+author: "EKing"
+format: docx
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| #set up
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(GGally)
+library(tidyr)
+```
+
+## Results - Data Analysis
+
+#### Habitat Data
+
+```{r}
+#|echo: false
+extent_data <- read.csv("Extent_Data.csv")
+```
+
+```{r}
+#|echo: false
+
+str(extent_data)
+
+```
+
+*What is the total number of habitat types identified across all 9 N+E windfarms?*
+
+```{r}
+length(unique(extent_data$Fossitt))
+print(unique(extent_data$Fossitt))
+```
+
+*What is the number of broad habitat types identified across all 9 N+E windfarms?*
+
+```{r}
+length(unique(extent_data$Habitat_Type))
+print(unique(extent_data$Habitat_Type))
+```
+
+*What are the most frequently occurring habitat types identified across all 9 windfarms?*
+
+```{r}
+sort(table(extent_data$Fossitt), decreasing = TRUE)
+
+habitat_frequency <- as.data.frame(table(extent_data$Fossitt))
+colnames(habitat_frequency) <- c("Fossitt", "Count")
+
+#sort in descending order
+habitat_frequency <- habitat_frequency %>%
+  arrange(desc(Count))
+
+#copy/paste table
+kable(habitat_frequency)
+#quick bar plot
+ggplot(habitat_frequency, aes(x = reorder(Fossitt, - Count), y = Count, fill = Fossitt)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Fossitt Habitat Code", 
+    y = "Count" ) +
+  theme_light() +
+  theme(legend.position = "none")
+  
+```
+
+*What is the largest habitat type (Fossitt Level 1) habitat type by area?*
+
+```{r}
+habitat_type_area_m2 <- extent_data %>%
+  group_by(Habitat_Type) %>%
+  summarise(
+    total_area_m2 = sum(Area_m2, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_area_m2))
+
+print(habitat_type_area_m2)
+
+#bar plot
+ggplot(habitat_type_area_m2, aes(x = reorder(Habitat_Type, - total_area_m2), y = total_area_m2, fill = Habitat_Type)) +
+  geom_bar(stat = "identity") + 
+  labs(
+    x = "Habitat type", 
+    y = "Area (metres squared)" ) +
+  theme_light() +
+  theme(legend.position = "none")
+
+#habitat type by hectares
+habitat_type_area_ha <- extent_data %>%
+  group_by(Habitat_Type) %>%
+  summarise(
+   total_area_ha = sum(Area_ha, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_area_ha))
+
+print(habitat_type_area_ha)
+kable(habitat_type_area_ha)
+
+ggplot(habitat_type_area_ha, aes(x = reorder(Habitat_Type, - total_area_ha), y = total_area_ha, fill = Habitat_Type)) +
+  geom_bar(stat = "identity") + 
+  labs(
+    x = "Habitat type", 
+    y = "Area (Ha)" ) +
+  theme_light() +
+  theme(legend.position = "none")
+```
+
+*What is the largest Fossitt Level 3 Habitat type by area?*
+
+```{r}
+#For area in metres squared
+habitat_area_m2 <- extent_data %>%
+  group_by(Fossitt) %>%
+  summarise(
+    total_area_m2 = sum(Area_m2, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_area_m2))
+
+print(habitat_area_m2)
+
+#bar plot
+ggplot(habitat_area_m2, aes(x = reorder(Fossitt, - total_area_m2), y = total_area_m2, fill = Fossitt)) +
+  geom_bar(stat = "identity") + 
+  labs(
+    x = "Fossitt", 
+    y = "Area (metres squared)" ) +
+  theme_light() +
+  theme(legend.position = "none")
+
+#for area in hectares
+habitat_area_ha <- extent_data %>%
+  group_by(Fossitt) %>%
+  summarise(
+   total_area_ha = sum(Area_ha, na.rm = TRUE)
+  ) %>%
+  arrange(desc(total_area_ha))
+
+print(habitat_area_ha)
+kable(habitat_area_ha)
+
+#bar plot
+ggplot(habitat_area_ha, aes(x = reorder(Fossitt, - total_area_ha), y = total_area_ha, fill = Fossitt)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Fossitt",
+    y = "Area (hectares)" ) +
+  theme_light() +
+  theme(legend.position = "none")
+```
+
+#### Condition Data
+
+```{r}
+condition_data <- read.csv("Condition_Data.csv")
+
+str(condition_data)
+```
+
+*What is the mean condition score for the Nature+Energy windfarm sites?*
+
+```{r}
+round(mean(condition_data$condscore),2)
+```
+
+*What is the mean condition score per habitat type?*
+
+```{r}
+habitat_condition <- condition_data %>%
+  group_by(Habitat_Type) %>%
+  summarise( 
+    mean_condition = mean(condscore)
+    ) %>%
+  arrange(desc(mean_condition))
+
+habitat_condition$mean_condition <- round(habitat_condition$mean_condition, 2)
+
+print(habitat_condition)
+kable(habitat_condition)
+```
+
+*What is the range of condition score per habitat type?*
+
+```{r}
+condition_ranges <- condition_data %>%
+  group_by(Habitat_Type) %>%
+  summarise(
+    min_conscore = min(condscore), 
+    max_condscore = max(condscore)
+  )
+
+kable(condition_ranges)
+```
+
+#### Biodiversity Action Plans Review
+
+```{r}
+#| echo: false
+#read in the data
+bap_review <- read.csv("BAP_Review.csv")
+
+str(bap_review)
+
+```
+
+*Number of action plans*
+
+```{r}
+length(unique(bap_review$BAP))
+
+```
+
+*Number of actions per action type*
+
+```{r}
+action_types <- bap_review %>%
+  group_by(Action_Type) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(action_types)
+
+kable(action_types)
+```
+
+*Number of actions in summarised actions*
+
+```{r}
+summarised_actions <- bap_review %>%
+  group_by(Action.type) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(summarised_actions, n= 43)
+
+kable(summarised_actions)
+```
+
+```{r}
+#plot of Count of action types
+
+ggplot(action_types, aes(x = Action_Type, y = Count, fill = Action_Type)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Action Type",
+       y = "Count") +
+  theme_light() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_blank())
+```
+
+#### Evidence for biodiversity actions review
+
+*Actions from scientific literature and evidence databases (Conservation Evidence)*
+
+```{r}
+#| echo: false
+evidence_data <- read.csv("Actions_Evidence_Database.csv")
+
+str(evidence_data)
+```
+
+*Number of actions*
+
+```{r}
+length(unique(evidence_data$Method))
+```
+
+*Number of documents/sources reviewed*
+
+```{r}
+length(unique(evidence_data$Source))
+
+sources <- evidence_data %>%
+  group_by(Source) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(sources)
+
+kable(sources)
+```
+
+*Total number of evidenced actions per action type*
+
+```{r}
+evidence_action_type <- evidence_data %>%
+  group_by(Action_Theme) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(evidence_action_type)
+
+kable(evidence_action_type)
+```
+
+*Total number of actions per summarised action*
+
+```{r}
+evidence_sumaction_type <- evidence_data %>%
+  group_by(Broad_Action) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(evidence_sumaction_type)
+
+kable(evidence_sumaction_type)
+```
+
+*Total number of evidenced actions by habitat and species*
+
+```{r}
+habitat_actions <- evidence_data %>%
+  group_by(Habitat) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(habitat_actions)
+
+kable(habitat_actions)
+
+
+species_actions <- evidence_data %>%
+  group_by(Species) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(species_actions)
+
+kable(species_actions)
+```
+
+*Total number of evidenced actions per habitat/species by action type*
+
+```{r}
+actions_per_hab <- evidence_data %>%
+  group_by(Action_Theme, Habitat) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(actions_per_hab)
+
+kable(actions_per_hab)
+
+actions_per_species <- evidence_data %>%
+  group_by(Action_Theme, Species) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(actions_per_species)
+
+kable(actions_per_species)
+```
+
+*Total number of evidenced actions per habitat/species by generalised action*
+
+```{r}
+genactions_per_hab <- evidence_data %>%
+  group_by(Broad_Action, Habitat) %>% 
+  summarise(Count = n()) %>% 
+  arrange(desc(Count))
+
+print(genactions_per_hab) 
+
+kable(genactions_per_hab)
+
+genactions_per_species <- evidence_data %>%
+  group_by(Broad_Action, Species) %>%
+  summarise(Count = n()) %>%
+  arrange(desc(Count))
+
+print(genactions_per_species) 
+kable(genactions_per_species)
+```
+
+```{r}
+#Count of action types
+ggplot(evidence_action_type, aes(x = Action_Theme, y = Count, fill = Action_Theme)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Action Type",
+       y = "Count") +
+  theme_light() +
+  theme(legend.position = "bottom",
+        axis.text.x = element_blank())
+```
+
+#### Stakeholder Interviews - Cost-Effectiveness Analysis
+
+```{r}
+#| echo: false
+#read in the data
+cea_analysis <- read.csv("Cost-Effectiveness-Analysis.csv")
+
+str(cea_analysis)
+```
+
+*What is the rank order of actions based on the averaged CEA?*
+
+```{r}
+cea_rank <- cea_analysis[order(cea_analysis$CEA.Average, decreasing = TRUE), ]
+```
+
+*What is the rank order of actions based on feasibility?*
+
+```{r}
+feasibility_rank <- cea_analysis[order(cea_analysis$Feasibility, decreasing = TRUE), ]
+```
+
+*What is the rank order of actions based on perceived benefit?*
+
+```{r}
+benefit_rank <- cea_analysis[order(cea_analysis$Benefit, decreasing = TRUE), ]
+```
+
+*What is the rank order of actions based on perceived cost? (indexed, not actual cost values)*
+
+```{r}
+cost_rank <- cea_analysis[order(cea_analysis$Cost, decreasing = FALSE), ]
+```
+
+*Comparing rankings between groups*
+
+```{r}
+#step 1 - Rank the dataframe by each criterion
+cea_rank$rank_cost <- rank(cea_rank$Cost, ties.method = "min") # Lower cost = better (ascending)
+cea_rank$rank_feasibility <- rank(-cea_rank$Feasibility, ties.method = "min") # Higher feasibility = better (descending)
+cea_rank$rank_benefit <- rank(-cea_rank$Benefit, ties.method = "min") # Higher benefit = better (descending)
+cea_rank$cea_avg_rank <- rank(-cea_rank$CEA.Average, ties.method = "min") # Higher CEA rank = better (descending)
+
+print(cea_rank)
+
+#step 2 - Compare rank orders
+#select rank columns
+ranked_cea <- cea_rank[, c("rank_cost", "rank_feasibility", "rank_benefit", "cea_avg_rank")]
+#compute correlation matrix
+cor_matrix <- cor(ranked_cea)
+#correlation matrix shows how rankings relate to each other. If rankings are similar, the correlation will be high. 
+#going to attempt to visualise the correlation matrix with a parallel coordinates plot
+#using the GGally package
+#first need the columns to be in numeric (rather than integer) format:
+cea_rank$rank_cost <- as.numeric(cea_rank$rank_cost)
+cea_rank$rank_feasibility <- as.numeric(cea_rank$rank_feasibility)
+cea_rank$rank_benefit <- as.numeric(cea_rank$rank_benefit)
+cea_rank$cea_avg_rank <- as.numeric(cea_rank$cea_avg_rank)
+#and action as a factor
+cea_rank$Action_code <- as.factor(cea_rank$Action_code)
+cea_rank$Action_type <- as.factor(cea_rank$Action_type)
+
+#parallel coordinates plot for Action type
+ggparcoord(cea_rank, columns = 8:11, groupColumn = "Action_type")
+#parallel coordinates plot for Actions (Coded names because too large otherwise)
+ggparcoord(cea_rank, columns = 8:11, groupColumn = "Action_code")
+```
+
+```{r}
+#going to statistically compare the rankings 
+#Kendall's Tau Correlation (measures how similar the rank orders are between two variables) #small dataset + ties
+cor.test(cea_rank$rank_cost, cea_rank$cea_avg_rank, method = "kendall")
+cor.test(cea_rank$rank_feasibility, cea_rank$cea_avg_rank, method = "kendall")
+cor.test(cea_rank$rank_benefit, cea_rank$cea_avg_rank, method = "kendall")
+#not sure how reliable these p-values are due to warning that an exact p-value cannot be computed with ties
+```
+
+```{r}
+#going to try statistically identify differences in the rankings
+#Friedman's test to check if there is a significant difference between different ranking methods
+#need to convert the data to long format
+long_data <- pivot_longer(cea_rank, cols = c("rank_cost", "rank_feasibility", "rank_benefit", "cea_avg_rank"), names_to = "ranking_method", values_to = "rank_value")
+
+friedman.test(rank_value ~ ranking_method | Action, data = long_data)
+#not sure in how reliable this test is either
+```
+
+```{r}
+#visualising the average cea rankings per action type
+ggplot(cea_rank, aes(x = Action_type, y = CEA.Average, fill = Action_type)) +
+  geom_boxplot() +
+  labs(x = "Action Type", 
+       y = "CEA Rank") +
+  theme_light() +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) 
+```
+
+#### Stakeholder Feedback on Draft Sectoral BAP
+
+***Thematic Analysis using Microsoft CoPilot**\
+*Asked CoPilot to code the feedback comments and then group the codes into clusters. This was repeated 25 times. Then I manually created themes based on the clusters.
+
+```{r}
+copilot_thematic_analysis <- read.csv("ThematicAnalysis_Feedback_Results.csv")
+```
+
+*Summary Statistics*
+
+```{r}
+copilot_thematic_analysis %>%
+  group_by(round) %>%
+  summarise(mean_codes = mean(no_of_codes),
+            sd_codes = sd(no_of_codes))
+```
+
+```{r}
+copilot_thematic_analysis %>%
+  group_by(round, manual_theme) %>%
+  summarise(total = sum(no_of_codes)) %>%
+  ggplot(aes(x = factor(round), y = total, fill = manual_theme)) +
+  geom_col(position = "dodge") +
+  labs(x = "Round", y = "Number of codes") +
+  theme_minimal()
+```
+
+```{r}
+
+copilot_thematic_analysis %>%
+  group_by(round, manual_theme) %>%
+  summarise(n = sum(no_of_codes)) %>%
+  ggplot(aes(x = factor(round), y = manual_theme, fill = n)) +
+  geom_tile(color = "white") +
+  scale_fill_gradient(low = "white", high = "steelblue") +
+  labs(title = "Heatmap of Codes per Theme per Round",
+       x = "Round", y = "Manual Theme") +
+  theme_minimal()
+```
+
+```{r}
+#number of clusters per round
+cluster_counts <- copilot_thematic_analysis %>%
+  group_by(round) %>%
+  summarise(num_clusters = n_distinct(cluster))
+
+range_clusters <- cluster_counts %>%
+  summarise(min_clusters = min(num_clusters),
+            max_clusters = max(num_clusters))
+print(range_clusters)
+
+```

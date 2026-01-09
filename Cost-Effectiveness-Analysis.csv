@@ -1,0 +1,43 @@
+Action_type,Action_code,Action,Feasibility,Benefit,Cost,CEA Average
+Biodiversity awareness (external),EP,Implement an education programme with local schools,91.11,61.67,1,4834.722222
+Biodiversity awareness (external),CS,Develop a Biodiversity Communications strategy,90.56,59.44,1,4361.111111
+Biodiversity awareness (external),PE,"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",87.78,65.56,1,4388.888889
+Biodiversity awareness (external),LC,Work with the local community to promote biodiversity projects on site and within the local area,77.22,77.50,1,4141.666667
+Biodiversity awareness (external),BS,Develop biodiversity signage on site to inform visitors of the biodiversity present,93.89,54.44,1,4913.888889
+Biodiversity awareness (external),WT,Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,80.00,66.11,2,3083.333333
+Biodiversity awareness (external),AD,Advertise and raise awareness of biodiversity actions within and beyond the sector ,86.11,70.00,1,4702.777778
+Biodiversity awareness (internal),ST,Provide training to staff on biodiversity & best practice,93.33,78.33,2,5472.222222
+Biodiversity awareness (internal),SE,Promote engagement with biodiversity with staff,95.56,73.89,1,6597.222222
+Biodiversity awareness (internal),BI,Ensure biodiversity is incorporated into all aspects of work,72.78,78.89,1,4375
+Biodiversity monitoring,US,Undertake surveys to identify habitats and species to understand what is on site,95.56,77.78,3,2800
+Biodiversity monitoring,EM,Establish monitoring for species/habitats that are under threat or keystone species,96.67,77.22,2,3144.907407
+Biodiversity monitoring,MS,Monitor species in line with relevant Species Action Plans or Threat Response Plans,96.67,78.89,2,3200.462963
+Biodiversity monitoring ,MH,Monitor habitat condition to update ecosystem accounts ,93.75,75.63,2,3130.092593
+Biodiversity monitoring and citizen science,CG,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,47.78,73.13,1,2444.444444
+Biodiversity monitoring and citizen science,CM,Involve citizen scientists in monitoring of habitats/species,47.78,68.75,1,2972.222222
+Citizen science,PI,"Promote initiatives that involve citizen science, especially involving the local community",71.67,72.50,2,3630.555556
+Data management,CD,Provide a central database for biodiversity data to be stored and easily accessed,80.56,76.67,2,4821.296296
+Data management,SD,Submit data to the National Biodiversity Data Centre and other relevant organisations,81.11,77.78,1,5222.222222
+Data management,DS,Ensure data collected meets data standards and follows relevant guidelines,81.67,70.56,2,4225
+Data management,OD,Make use of open biodiversity data to inform decisions ,90.00,77.78,1,7016.666667
+Habitat creation,PR,Create nesting or food resources for pollinators/invertebrates,92.22,83.33,2,4951.388889
+Habitat creation,HC,Create habitat corridors between existing habitats,85.56,83.89,2,5097.222222
+Habitat creation,HP,Create pockets of new habitat throughout the site,83.33,86.67,2,4534.722222
+Habitat creation,PH,Create/Improve pond habitats,78.13,80.00,2,3320.37037
+Invasive species,MI,Identify and map the locations of invasive species,90.63,81.25,2,4002.777778
+Invasive species,RI,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",82.50,83.75,3,2403.703704
+Invasive species,IM,Develop a plan for monitoring and managing invasive species,88.13,77.50,2,3811.111111
+Invasive species,IA,Raise awareness of invasive species and keep up to date on updates from NBDC,88.13,71.88,1,4615.277778
+Management,HM,Manage hedgerows in a biodiversity-friendly manner,92.22,86.67,1,6531.944444
+Management,PM,Manage areas in a pollinator-friendly manner and report to the AIPP,87.22,90.00,2,5437.5
+Management,CP,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",77.22,91.67,2,5136.111111
+Management,WM,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",82.50,89.38,2,4160.648148
+Management,NS,Implement nature-based solutions around the site,83.13,83.75,2,3848.611111
+Management,EF,Encourage farmers to engage with biodiversity-friendly management,70.00,81.11,1,4627.777778
+Management,PN,Manage in a positive way for native species,83.89,91.11,2,4598.611111
+Management,BF,Manage in a biodiversity-friendly way - creating space for biodiversity,80.00,88.89,2,5372.685185
+Management,NC,Use a natural-capital accounting approach to manage land for biodiversity,74.38,76.88,2,2786.111111
+Restoration,RW,Restore and improve wetland and waterbody habitats,85.56,94.44,2,3686.111111
+Restoration,RH,Restore hedgerows around the site to improve ecological connectivity ,90.00,91.11,2,5243.055556
+Restoration,RP,Restore and rehabilitate peatland habitats,79.44,89.44,2,3734.259259
+Restoration,IR,Identify opportunities to restore habitats ,94.44,91.67,2,6309.722222

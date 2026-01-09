@@ -1,0 +1,379 @@
+Action_Code,Action type,Action,Interviewee,Feasibility,Cost,Cost Indexed,Benefit
+BE,Biodiversity awareness (external),Implement an education programme with local schools,A,100,L,1,75
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,A,100,L,1,85
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",A,85,L,1,50
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,A,100,L,1,75
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,A,85,L,1,50
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,A,50,M,2,70
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,A,85,L,1,85
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,A,100,L,1,95
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,A,100,L ,1,95
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,A,85,L,1,85
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,A,100,H,3,100
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,A,100,H,3,100
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,A,100,H,3,100
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,A,,,,
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,A,25,L,1,
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,A,25,L,1,
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",A,25,L,1,
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,A,100,L,1,90
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,A,100,M,2,85
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,A,100,M,2,80
+DM,Data management,Make use of open biodiversity data to inform decisions ,A,80,L,1,80
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,A,100,M,2,100
+HC,Habitat creation,Create habitat corridors between existing habitats,A,100,M,2,100
+HC,Habitat creation,Create pockets of new habitat throughout the site,A,100,M,2,100
+HC,Habitat creation,Create/Improve pond habitats,A,,,,
+IS,Invasive species,Identify and map the locations of invasive species,A,,,,
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",A,,,,
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,A,,,,
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,A,,,,
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,A,100,L,1,100
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,A,90,M,2,100
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",A,50,M,2,100
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",A,,,,
+MA,Management,Implement nature-based solutions around the site,A,,,,
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,A,100,L,1,100
+MA,Management,Manage in a positive way for native species,A,50,M,2,100
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,A,50,L,1,100
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,A,,,,
+RE,Restoration,Restore and improve wetland and waterbody habitats,A,50,,,100
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,A,100,L,1,100
+RE,Restoration,Restore and rehabilitate peatland habitats,A,50,M,2,100
+RE,Restoration,Identify opportunities to restore habitats ,A,100,M,2,100
+BE,Biodiversity awareness (external),Implement an education programme with local schools,B,85,L,1,50
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,B,85,L,1,50
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",B,50,M,2,75
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,B,85,L,1,85
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,B,85,L,1,100
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,B,75,H,3,85
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,B,50,L,1,100
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,B,75,M,2,100
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,B,85,L,1,85
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,B,50,L,1,100
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,B,100,H,3,100
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,B,100,M,2,85
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,B,100,M,2,85
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,B,85,L,1,85
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,B,50,L,1,85
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,B,50,L,1,85
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",B,75,M,2,100
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,B,100,L,1,100
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,B,75,L,1,100
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,B,100,H,3,100
+DM,Data management,Make use of open biodiversity data to inform decisions ,B,85,L,1,85
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,B,85,M,2,100
+HC,Habitat creation,Create habitat corridors between existing habitats,B,75,M,2,85
+HC,Habitat creation,Create pockets of new habitat throughout the site,B,50,M,2,85
+HC,Habitat creation,Create/Improve pond habitats,B,85,M,2,85
+IS,Invasive species,Identify and map the locations of invasive species,B,100,M,2,100
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",B,100,H,3,100
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,B,85,M,2,100
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,B,75,L,1,100
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,B,100,M,2,100
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,B,75,M,2,85
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",B,50,L,1,100
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",B,50,M,2,100
+MA,Management,Implement nature-based solutions around the site,B,85,L,1,85
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,B,85,M,2,100
+MA,Management,Manage in a positive way for native species,B,85,L,1,100
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,B,50,H,3,85
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,B,85,M,2,100
+RE,Restoration,Restore and improve wetland and waterbody habitats,B,85,M,2,100
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,B,100,L,1,100
+RE,Restoration,Restore and rehabilitate peatland habitats,B,75,H,3,100
+RE,Restoration,Identify opportunities to restore habitats ,B,100,L,1,100
+BE,Biodiversity awareness (external),Implement an education programme with local schools,C,100,M,2,85
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,C,100,L,1,50
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",C,100,M,2,85
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,C,100,H,3,90
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,C,100,L,1,25
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,C,100,M,2,50
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,C,100,L,1,50
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,C,100,M,2,75
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,C,100,L,1,50
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,C,75,L,1,50
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,C,100,H,3,85
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,C,100,H,3,85
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,C,100,H,3,100
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,C,100,H,3,85
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,C,25,L,1,85
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,C,25,L,1,50
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",C,75,M,2,60
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,C,100,M,2,50
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,C,100,M,2,75
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,C,40,H,3,50
+DM,Data management,Make use of open biodiversity data to inform decisions ,C,100,L,1,60
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,C,100,L,1,50
+HC,Habitat creation,Create habitat corridors between existing habitats,C,75,L,1,60
+HC,Habitat creation,Create pockets of new habitat throughout the site,C,100,L,1,100
+HC,Habitat creation,Create/Improve pond habitats,C,100,H,3,85
+IS,Invasive species,Identify and map the locations of invasive species,C,100,L,1,50
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",C,85,M,2,50
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,C,100,L,1,50
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,C,100,L,1,50
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,C,100,L,1,100
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,C,100,L,1,100
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",C,100,M,2,100
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",C,100,L,1,100
+MA,Management,Implement nature-based solutions around the site,C,100,M,2,100
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,C,100,M,2,50
+MA,Management,Manage in a positive way for native species,C,100,M,2,100
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,C,100,L,1,100
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,C,75,L,1,50
+RE,Restoration,Restore and improve wetland and waterbody habitats,C,100,H,3,100
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,C,75,M,2,85
+RE,Restoration,Restore and rehabilitate peatland habitats,C,100,L,1,85
+RE,Restoration,Identify opportunities to restore habitats ,C,100,M,2,100
+BE,Biodiversity awareness (external),Implement an education programme with local schools,D,100,L,1,100
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,D,100,M,2,100
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",D,100,L,1,100
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,D,50,L,1,100
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,D,100,L,1,75
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,D,100,L,1,100
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,D,100,M,2,100
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,D,100,L,1,100
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,D,100,L,1,100
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,D,100,M,2,100
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,D,100,H,3,100
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,D,100,H,3,100
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,D,100,H,3,100
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,D,100,H,3,100
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,D,75,M,2,100
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,D,100,L,1,100
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",D,100,L,1,100
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,D,50,H,3,100
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,D,100,L,1,100
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,D,100,L,1,100
+DM,Data management,Make use of open biodiversity data to inform decisions ,D,100,L,1,100
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,D,100,M,2,100
+HC,Habitat creation,Create habitat corridors between existing habitats,D,100,L,1,100
+HC,Habitat creation,Create pockets of new habitat throughout the site,D,100,M,2,100
+HC,Habitat creation,Create/Improve pond habitats,D,100,L,1,100
+IS,Invasive species,Identify and map the locations of invasive species,D,100,L,1,100
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",D,100,H,3,100
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,D,100,L,1,100
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,D,100,L,1,100
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,D,100,M,2,100
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,D,100,M,2,100
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",D,75,L,1,100
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",D,100,H,3,100
+MA,Management,Implement nature-based solutions around the site,D,100,M,2,100
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,D,50,L,1,100
+MA,Management,Manage in a positive way for native species,D,100,M,2,100
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,D,100,L,1,100
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,D,100,M,2,100
+RE,Restoration,Restore and improve wetland and waterbody habitats,D,100,H,3,100
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,D,100,M,2,100
+RE,Restoration,Restore and rehabilitate peatland habitats,D,100,M,2,100
+RE,Restoration,Identify opportunities to restore habitats ,D,100,M,2,100
+BE,Biodiversity awareness (external),Implement an education programme with local schools,E,85,L,1,50
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,E,75,L,1,50
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",E,85,L,1,75
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,E,50,L,1,75
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,E,100,L,1,25
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,E,85,L,1,25
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,E,85,L,1,50
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,E,100,L,1,85
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,E,100,L,1,85
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,E,15,L,1,85
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,E,85,M,2,25
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,E,85,M,2,25
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,E,85,M,2,25
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,E,85,M,2,25
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,E,25,L,1,25
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,E,25,L,1,25
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",E,50,L,1,50
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,E,75,L,1,75
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,E,75,L,1,75
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,E,85,L,1,75
+DM,Data management,Make use of open biodiversity data to inform decisions ,E,85,L,1,75
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,E,85,M,2,85
+HC,Habitat creation,Create habitat corridors between existing habitats,E,85,M,2,85
+HC,Habitat creation,Create pockets of new habitat throughout the site,E,85,M,2,85
+HC,Habitat creation,Create/Improve pond habitats,E,85,M,2,85
+IS,Invasive species,Identify and map the locations of invasive species,E,85,M,2,85
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",E,85,H,3,85
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,E,75,M,2,85
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,E,75,L,1,85
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,E,85,M,2,85
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,E,75,M,2,85
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",E,85,M,2,85
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",E,85,M,2,85
+MA,Management,Implement nature-based solutions around the site,E,75,M,2,85
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,E,50,M,2,85
+MA,Management,Manage in a positive way for native species,E,85,M,2,85
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,E,75,M,2,85
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,E,25,M,2,50
+RE,Restoration,Restore and improve wetland and waterbody habitats,E,85,H,3,85
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,E,85,M,2,85
+RE,Restoration,Restore and rehabilitate peatland habitats,E,85,H,3,85
+RE,Restoration,Identify opportunities to restore habitats ,E,100,L,1,75
+BE,Biodiversity awareness (external),Implement an education programme with local schools,F,85,M,2,85
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,F,85,L,1,85
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",F,90,M,2,90
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,F,75,M,2,90
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,F,90,L,1,90
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,F,75,M,2,90
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,F,85,M,2,90
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,F,80,H,3,90
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,F,90,M,2,90
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,F,70,M,2,90
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,F,90,H,3,90
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,F,85,M,2,90
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,F,85,M,2,90
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,F,80,M,2,95
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,F,75,M,2,90
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,F,75,M,2,90
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",F,75,H,3,90
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,F,90,L,1,90
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,F,80,L,1,100
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,F,85,L,1,90
+DM,Data management,Make use of open biodiversity data to inform decisions ,F,85,L,1,90
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,F,85,M,2,90
+HC,Habitat creation,Create habitat corridors between existing habitats,F,85,M,2,90
+HC,Habitat creation,Create pockets of new habitat throughout the site,F,80,M,2,90
+HC,Habitat creation,Create/Improve pond habitats,F,80,M,2,90
+IS,Invasive species,Identify and map the locations of invasive species,F,80,M,2,90
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",F,75,M,2,90
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,F,80,M,2,90
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,F,80,M,2,90
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,F,80,L,1,90
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,F,80,M,2,90
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",F,70,M,2,90
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",F,75,M,2,90
+MA,Management,Implement nature-based solutions around the site,F,75,M,2,90
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,F,70,M,2,90
+MA,Management,Manage in a positive way for native species,F,75,M,2,90
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,F,75,M,2,90
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,F,70,M,2,90
+RE,Restoration,Restore and improve wetland and waterbody habitats,F,75,M,2,90
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,F,75,M,2,90
+RE,Restoration,Restore and rehabilitate peatland habitats,F,75,M,2,90
+RE,Restoration,Identify opportunities to restore habitats ,F,85,L,1,90
+BE,Biodiversity awareness (external),Implement an education programme with local schools,G,75,L,1,50
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,G,100,M,2,50
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",G,100,M,2,50
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,G,75,L,1,75
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,G,100,L,1,75
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,G,100,H,3,75
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,G,100,L,1,90
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,G,85,L,1,60
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,G,85,L,1,60
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,G,85,L,1,85
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,G,85,M,2,75
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,G,100,M,2,85
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,G,100,M,2,85
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,G,100,M,2,90
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,G,50,L,1,75
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,G,50,L,1,75
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",G,85,L,1,75
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,G,50,L,1,35
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,G,50,L,1,75
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,G,75,M,2,50
+DM,Data management,Make use of open biodiversity data to inform decisions ,G,100,L,1,75
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,G,100,L,1,90
+HC,Habitat creation,Create habitat corridors between existing habitats,G,75,L,1,75
+HC,Habitat creation,Create pockets of new habitat throughout the site,G,75,L,1,75
+HC,Habitat creation,Create/Improve pond habitats,G,15,M,2,50
+IS,Invasive species,Identify and map the locations of invasive species,G,85,M,2,75
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",G,85,H,3,85
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,G,85,M,2,85
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,G,75,M,2,75
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,G,75,L,1,65
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,G,90,L,1,85
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",G,90,L,1,85
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",G,50,M,2,75
+MA,Management,Implement nature-based solutions around the site,G,70,H,3,75
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,G,50,L,1,80
+MA,Management,Manage in a positive way for native species,G,75,H,3,80
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,G,70,M,2,75
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,G,90,H,3,85
+RE,Restoration,Restore and improve wetland and waterbody habitats,G,85,L,1,90
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,G,85,M,2,75
+RE,Restoration,Restore and rehabilitate peatland habitats,G,50,H,3,60
+RE,Restoration,Identify opportunities to restore habitats ,G,75,M,2,75
+BE,Biodiversity awareness (external),Implement an education programme with local schools,H,90,L,1,10
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,H,70,M,2,15
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",H,80,L,1,15
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,H,60,L,1,30
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,H,85,L,1,25
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,H,85,L,1,25
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,H,70,M,2,15
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,H,100,L,1,25
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,H,100,L,1,25
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,H,75,L,1,40
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,H,100,M,2,75
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,H,100,M,2,75
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,H,100,M,2,75
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,H,100,M,2,75
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,H,30,L,1,75
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,H,30,L,1,75
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",H,60,L,1,30
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,H,60,M,2,75
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,H,50,M,2,15
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,H,50,M,2,15
+DM,Data management,Make use of open biodiversity data to inform decisions ,H,75,L,1,60
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,H,75,L,1,85
+HC,Habitat creation,Create habitat corridors between existing habitats,H,75,L,1,85
+HC,Habitat creation,Create pockets of new habitat throughout the site,H,60,M,2,70
+HC,Habitat creation,Create/Improve pond habitats,H,60,M,2,70
+IS,Invasive species,Identify and map the locations of invasive species,H,100,M,2,75
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",H,80,M,2,85
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,H,80,M,2,85
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,H,100,L,1,50
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,H,90,L,1,90
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,H,100,L,1,90
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",H,100,L,1,90
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",H,100,L,1,90
+MA,Management,Implement nature-based solutions around the site,H,85,L,1,85
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,H,100,L,1,100
+MA,Management,Manage in a positive way for native species,H,85,L,1,90
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,H,100,L,1,90
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,H,100,M,2,90
+RE,Restoration,Restore and improve wetland and waterbody habitats,H,90,M,2,85
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,H,90,M,2,85
+RE,Restoration,Restore and rehabilitate peatland habitats,H,90,M,2,85
+RE,Restoration,Identify opportunities to restore habitats ,H,90,M,2,85
+BE,Biodiversity awareness (external),Implement an education programme with local schools,I,100,L,1,50
+BE,Biodiversity awareness (external),Develop a Biodiversity Communications strategy,I,100,M,2,50
+BE,Biodiversity awareness (external),"Host/promote events for the community on biodiversity topics, e.g., talks & walks, tours, Heritage week, workshops, etc. ",I,100,L,1,50
+BE,Biodiversity awareness (external),Work with the local community to promote biodiversity projects on site and within the local area,I,100,L,1,
+BE,Biodiversity awareness (external),Develop biodiversity signage on site to inform visitors of the biodiversity present,I,100,M,2,25
+BE,Biodiversity awareness (external),Develop walking trails or other visitor infrastructure to highlight biodiversity onsite,I,50,H,3,75
+BE,Biodiversity awareness (external),Advertise and raise awareness of biodiversity actions within and beyond the sector ,I,100,M,2,50
+AI,Biodiversity awareness (internal),Provide training to staff on biodiversity & best practice,I,100,M,2,75
+AI,Biodiversity awareness (internal),Promote engagement with biodiversity with staff,I,100,L,1,75
+AI,Biodiversity awareness (internal),Ensure biodiversity is incorporated into all aspects of work,I,100,M,2,75
+BM,Biodiversity monitoring,Undertake surveys to identify habitats and species to understand what is on site,I,100,H,3,50
+BM,Biodiversity monitoring,Establish monitoring for species/habitats that are under threat or keystone species,I,100,H,3,50
+BM,Biodiversity monitoring,Monitor species in line with relevant Species Action Plans or Threat Response Plans,I,100,H,3,50
+BM,Biodiversity monitoring,Monitor habitat condition to update ecosystem accounts ,I,100,H,3,50
+CS,Citizen science,Establish/Engage the local community or volunteer group that are interested in biodiversity monitoring,I,75,M,2,50
+CS,Citizen science,Involve citizen scientists in monitoring of habitats/species,I,50,M,2,50
+CS,Citizen science,"Promote initiatives that involve citizen science, especially involving the local community",I,100,M,2,75
+DM,Data management,Provide a central database for biodiversity data to be stored and easily accessed,I,100,H,3,75
+DM,Data management,Submit data to the National Biodiversity Data Centre and other relevant organisations,I,100,M,2,75
+DM,Data management,Ensure data collected meets data standards and follows relevant guidelines,I,100,M,2,75
+DM,Data management,Make use of open biodiversity data to inform decisions ,I,100,L,1,75
+HC,Habitat creation,Create nesting or food resources for pollinators/invertebrates,I,100,M,2,50
+HC,Habitat creation,Create habitat corridors between existing habitats,I,100,M,2,75
+HC,Habitat creation,Create pockets of new habitat throughout the site,I,100,M,2,75
+HC,Habitat creation,Create/Improve pond habitats,I,100,M,2,75
+IS,Invasive species,Identify and map the locations of invasive species,I,75,H,3,75
+IS,Invasive species,"Remove invasive species from the site, adhering to correct removal methods to reduce risk of spread",I,50,H,3,75
+IS,Invasive species,Develop a plan for monitoring and managing invasive species,I,100,M,2,25
+IS,Invasive species,Raise awareness of invasive species and keep up to date on updates from NBDC,I,100,M,2,25
+MA,Management,Manage hedgerows in a biodiversity-friendly manner,I,100,L,1,50
+MA,Management,Manage areas in a pollinator-friendly manner and report to the AIPP,I,75,M,2,75
+MA,Management,"Minimise the use of chemical pesticides, insecticides, herbicides, fungicides, rodenticides, etc. on site",I,75,M,2,75
+MA,Management,"Manage existing water features (ponds, lakes, rivers) in a biodiversity-friendly manner",I,100,M,2,75
+MA,Management,Implement nature-based solutions around the site,I,75,M,2,50
+MA,Management,Encourage farmers to engage with biodiversity-friendly management,I,25,L,1,25
+MA,Management,Manage in a positive way for native species,I,100,M,2,75
+MA,Management,Manage in a biodiversity-friendly way - creating space for biodiversity,I,100,M,2,75
+MA,Management,Use a natural-capital accounting approach to manage land for biodiversity,I,50,M,2,50
+RE,Restoration,Restore and improve wetland and waterbody habitats,I,100,M,2,100
+RE,Restoration,Restore hedgerows around the site to improve ecological connectivity ,I,100,M,2,100
+RE,Restoration,Restore and rehabilitate peatland habitats,I,90,M,2,100
+RE,Restoration,Identify opportunities to restore habitats ,I,100,L,1,100

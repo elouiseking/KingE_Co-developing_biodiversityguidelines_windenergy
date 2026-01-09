@@ -1,0 +1,709 @@
+---
+title: "Ch3_CEA_Wec_Modelling"
+format: docx
+editor: visual
+---
+
+## CEA WEC Modelling
+
+To keep all of the terms in the model - need to run weighted effects coding in the model
+
+```{r}
+#| echo: false
+#load packages
+library(ggplot2)
+library(dplyr)
+library(knitr)
+library(GGally)
+library(tidyr)
+library(RColorBrewer)
+library(tibble)
+library(lme4)
+library(broom.mixed)
+library(DHARMa)
+library(car)
+library(stringr)
+library(forcats)
+library(cowplot)
+library(fmsb)
+library(rgl)
+library(factoextra) # for cluster analysis
+library(ggforce)
+library(ggrepel)
+library(wec)
+library(stringr)
+```
+
+```{r}
+#| echo: false
+#read in the data
+interview_data <- read.csv("Interview_Data_Edited.csv")
+#remove NAs
+interview_data <- na.omit(interview_data)
+```
+
+```{r}
+#calculate Cost-Effectiveness indicator
+interview_data$CE <- (interview_data$Feasibility * interview_data$Benefit) / interview_data$Cost.Indexed
+```
+
+```{r}
+#needs this to be a factor
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (external)"
+)
+
+```
+
+```{r}
+#running the first model using wec 
+m1_a <- lmer(scale(CE) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(m1_a)
+m1a_summary <- summary(m1_a)$coefficients #making the model outputs into a dataframe
+m1a <- as.data.frame(m1a_summary)
+print(m1a)
+action_types <- rownames(m1a_summary)
+m1a$action_types <- action_types
+action_types_a <- data.frame(m1a$action_types)
+
+```
+
+```{r}
+#now going to change the contrasts to a different action type term (Biodiversity awareness (internal))
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (internal)"
+)
+```
+
+```{r}
+#version 2 of the same model, using Biodiversity awareness (internal) as the wec ref
+m1_b <- lmer(scale(CE) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(m1_b)
+m1b_summary <- summary(m1_b)$coefficients #making the modedl outputs into a dataframe
+m1b <- as.data.frame(m1b_summary)
+print(m1b)
+action_types <- rownames(m1b_summary)
+m1b$action_types <- action_types
+action_types_b <- data.frame(m1b$action_types)
+```
+
+```{r}
+#merge the action types together so we get all 9 action types in the one dataframe
+action_type <- cbind(action_types_a, action_types_b)
+action_type <- union(action_type$m1a.action_types, action_type$m1b.action_types)
+unique(action_type)
+
+#remove Action.type from in front of the effect labels
+action_type <- str_remove(action_type, "^Action\\.type\\.wec")
+```
+
+```{r}
+#merging the two model outputs together
+m1a$`t value` <- round(m1a$`t value`, digits = 3)
+m1b$`t value` <- round(m1b$`t value`, digits = 3)
+m1 <- merge(m1a, m1b, by = "t value", all = TRUE)
+```
+
+```{r}
+#combine the columns using ifelse to handle potential NA values
+m1$Estimate <- ifelse(is.na(m1$Estimate.x), m1$Estimate.y, m1$Estimate.x)
+m1$Std.Error <- ifelse(is.na(m1$`Std. Error.x`), m1$`Std. Error.y`, m1$`Std. Error.x`)
+m1$action_types <- ifelse(is.na(m1$action_types.x), m1$action_types.y, m1$action_types.x)
+```
+
+```{r}
+#select the relevant columns to keep
+m1_data <- m1[,c("t value", "Estimate", "Std.Error", "action_types")]
+
+
+m1_data$action_types <- str_remove(m1_data$action_types, "^Action\\.type\\.wec")
+```
+
+```{r}
+#plotting the forest plots of the estimates 
+#calculate the fixed effects
+m1a_fixef <- fixef(m1_a)
+m1b_fixef <- fixef(m1_b)
+
+#calculate the standard errors
+m1a_se <- sqrt(diag(vcov(m1_a)))
+m1b_se <- sqrt(diag(vcov(m1_b)))
+```
+
+```{r}
+#m1a plot
+m1a_plot_data <- data.frame(Effect = names(m1a_fixef),
+                            Estimate = m1a_fixef,
+                            SE = m1a_se)
+
+#remove the (Intercept row), as it's not needed for the plot
+m1a_plot_data <- m1a_plot_data[-1,]
+#1.96 is the critical value for a 95% confidence level
+m1a_plot_data$LowerCI <- m1a_plot_data$Estimate -1.96 * m1a_plot_data$SE
+m1a_plot_data$UpperCI <- m1a_plot_data$Estimate +1.96 * m1a_plot_data$SE
+
+ggplot(m1a_plot_data, aes(x = Estimate, y = Effect)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = LowerCI, xmax = UpperCI), height = 0) +
+  labs(x = "Estimate", y = "Effect") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal()
+```
+
+```{r}
+#m1b plot
+m1b_plot_data <- data.frame(Effect = names(m1b_fixef),
+                            Estimate = m1b_fixef,
+                            SE = m1b_fixef)
+
+#remove the (Intercept) row, as it's not needed for the plot
+m1b_plot_data <- m1b_plot_data[-1,]
+
+m1b_plot_data$LowerCI <- m1b_plot_data$Estimate - 1.96 * m1b_plot_data$SE
+m1b_plot_data$UpperCI <- m1b_plot_data$Estimate + 1.96 * m1b_plot_data$SE
+
+ggplot(m1b_plot_data, aes(x = Estimate, y = Effect))  +
+  geom_point() +
+  geom_errorbar(aes(xmin = LowerCI, xmax = UpperCI), height = 0) +
+  labs(x = "Estimate", y = "Effect") +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "red") +
+  theme_minimal()
+```
+
+```{r}
+#merge the datasets
+merged_data <- merge(m1a_plot_data, m1b_plot_data, by = "Effect", all = TRUE, suffixes = c(".m1a", ".m1b"))
+
+
+#remove Action.type.wec from infront of the merged data
+merged_data$Effect <- str_remove(merged_data$Effect, "^Action\\.type\\.wec")
+
+merged_data$Estimate <- ifelse(is.na(merged_data$Estimate.m1a), merged_data$Estimate.m1b, merged_data$Estimate.m1a)
+merged_data$SE <- ifelse(is.na(merged_data$SE.m1a), merged_data$SE.m1b, merged_data$SE.m1a)
+merged_data$LowerCI <- ifelse(is.na(merged_data$LowerCI.m1a), merged_data$LowerCI.m1b, merged_data$LowerCI.m1a)
+merged_data$UpperCI <- ifelse(is.na(merged_data$UpperCI.m1a), merged_data$UpperCI.m1b, merged_data$LowerCI.m1a)
+
+
+#Select the relevant columns to keep
+m1_residual_data <- merged_data[, c("Effect", "Estimate", "SE", "LowerCI", "UpperCI")]
+```
+
+```{r}
+m1_data <- m1_data %>% arrange(Estimate)
+m1_data$action_types <- factor(m1_data$action_types, levels = m1_data$action_types)
+
+ggplot(m1_data, aes(x = action_types, y = Estimate)) +
+  geom_point(shape = 18, size = 3.5) +
+  geom_errorbar(aes(ymin = Estimate - Std.Error, ymax = Estimate + Std.Error),
+                width = 0.2) +
+  labs(x = "Action", y = "Effect size") +
+  theme_light() +
+  theme(legend.position = "bottom") +
+  coord_flip()
+
+#Extract the effect sizes (estimates) and standard error from the model to make a nicer plot
+m1_data$action_types <- as.character(m1_data$action_types)
+
+#remove the intercept level
+m1_data <- m1_data %>%
+  filter(action_types !="(Intercept)")
+```
+
+```{r}
+#Adding a new column to check if confidence intervals are signficiant so this can be plotted 
+m1_data <- m1_data %>%
+  mutate(sig = ifelse(Estimate - 1.96 *Std.Error > 0 & Estimate + 1.96 *Std.Error > 0 |
+                      Estimate - 1.96 *Std.Error < 0 & Estimate + 1.96 *Std.Error < 0,
+                      "Significant", "Non-significant"))
+```
+
+```{r}
+m1_data <- m1_data %>% arrange(Estimate)
+m1_data$action_types <- factor(m1_data$action_types, levels = m1_data$action_types)
+
+m1_plot <- ggplot(m1_data, aes(x = action_types, y = Estimate)) +
+  geom_point(aes(shape = sig), size = 5) +
+  geom_errorbar(aes(ymin = Estimate - 1.96 *Std.Error, ymax = Estimate + 1.96 *Std.Error),
+                width = 0.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") + 
+  scale_shape_manual(values = c("Significant" = 16, "Non-significant" = 1)) + 
+  ggtitle("(a) Cost-effectiveness score") +
+  labs(x = "Action type", y = "Effect size") +
+  theme_light() +
+  theme(plot.title = element_text(size = 18, color = "black", face = "bold")) +
+  theme(legend.position = "none",
+        legend.text = element_text(size = 14, color = "black"),
+        legend.title = element_text(size = 16, color = "black")) +
+  theme(axis.text.x = element_text(size = 16, color = "black"),
+        axis.text.y = element_text(size = 16, color = "black"),
+        axis.title = element_text(size = 18, color = "black"),
+        axis.line = element_line(color = "black")) +
+  coord_flip()
+```
+
+```{r}
+#testing parameters using the DHARMa package
+m1a_simulationOutput <- simulateResiduals(fittedModel = m1_a, n = 250) 
+m1b_simulationOutput <- simulateResiduals(fittedModel = m1_b, n = 250)
+
+hist(m1a_simulationOutput)
+hist(m1b_simulationOutput)
+
+testDispersion(m1a_simulationOutput)
+testDispersion(m1b_simulationOutput)
+```
+
+## Modelling each parameter (Cost, Feasibility, Benefit) separately
+
+#### Feasibility Model
+
+*Feasibility as a function of action type and expert as a random effect.*
+
+```{r}
+# Set the contrasts again
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (external)"
+)
+```
+
+```{r}
+#running the first model using wec 
+fmodel_a <- lmer(scale(Feasibility) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(fmodel_a)
+fmoda_summary <- summary(fmodel_a)$coefficients #making the model outputs into a dataframe
+fmod_a <- as.data.frame(fmoda_summary)
+print(fmod_a)
+action_types <- rownames(fmoda_summary)
+fmod_a$action_types <- action_types
+action_types_a <- data.frame(fmod_a$action_types)
+```
+
+```{r}
+#now going to change the contrasts to a different action type term (Biodiversity awareness (internal))
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (internal)"
+)
+```
+
+```{r}
+#version 2 of the same model, using Biodiversity awareness (internal) as the wec ref
+fmodel_b <- lmer(scale(Feasibility) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(fmodel_b)
+fmodb_summary <- summary(fmodel_b)$coefficients #making the modedl outputs into a dataframe
+fmod_b <- as.data.frame(fmodb_summary)
+print(fmod_b)
+action_types <- rownames(fmodb_summary)
+fmod_b$action_types <- action_types
+action_types_b <- data.frame(fmod_b$action_types)
+```
+
+```{r}
+#merge the action types together so we get all 9 action types in the one dataframe
+action_type <- cbind(action_types_a, action_types_b)
+action_type <- union(action_type$fmod_a.action_types, action_type$fmod_b.action_types)
+unique(action_type)
+
+#remove Action.type from in front of the effect labels
+action_type <- str_remove(action_type, "^Action\\.type\\.wec")
+```
+
+```{r}
+#merging the two model outputs together
+fmod_a$`t value` <- round(fmod_a$`t value`, digits = 3)
+fmod_b$`t value` <- round(fmod_b$`t value`, digits = 3)
+fmod <- merge(fmod_a, fmod_b, by = "t value", all = TRUE)
+```
+
+```{r}
+#combine the columns using ifelse to handle potential NA values
+fmod$Estimate <- ifelse(is.na(fmod$Estimate.x), fmod$Estimate.y, fmod$Estimate.x)
+fmod$Std.Error <- ifelse(is.na(fmod$`Std. Error.x`), fmod$`Std. Error.y`, fmod$`Std. Error.x`)
+fmod$action_types <- ifelse(is.na(fmod$action_types.x), fmod$action_types.y, fmod$action_types.x)
+```
+
+```{r}
+#select the relevant columns to keep
+fmod_data <- fmod[,c("t value", "Estimate", "Std.Error", "action_types")]
+
+
+fmod_data$action_types <- str_remove(fmod_data$action_types, "^Action\\.type\\.wec")
+```
+
+```{r}
+fmod_data <- fmod_data %>% arrange(Estimate)
+fmod_data$action_types <- factor(fmod_data$action_types, levels = fmod_data$action_types)
+
+ggplot(fmod_data, aes(x = action_types, y = Estimate)) +
+  geom_point(shape = 18, size = 3.5) +
+  geom_errorbar(aes(ymin = Estimate - 1.96 *Std.Error, ymax = Estimate + 1.96 * Std.Error),
+                width = 0.2) +
+  labs(x = "Action", y = "Effect size") +
+  theme_light() +
+  theme(legend.position = "bottom") +
+  coord_flip()
+
+#Extract the effect sizes (estimates) and standard error from the model to make a nicer plot
+fmod_data$action_types <- as.character(fmod_data$action_types)
+
+#remove the intercept level
+fmod_data <- fmod_data %>%
+  filter(action_types !="(Intercept)")
+```
+
+```{r}
+#Adding a new column to check if confidence intervals are signficiant so this can be plotted 
+fmod_data <- fmod_data %>%
+  mutate(fsig = ifelse(Estimate - 1.96 *Std.Error > 0 & Estimate + 1.96 *Std.Error > 0 |
+                      Estimate - 1.96 *Std.Error < 0 & Estimate + 1.96 *Std.Error < 0,
+                      "Significant", "Non-significant"))
+```
+
+```{r}
+fmod_data <- fmod_data %>% arrange(Estimate)
+fmod_data$action_types <- factor(fmod_data$action_types, levels = levels(m1_data$action_types))
+
+fmod_plot <- ggplot(fmod_data, aes(x = action_types, y = Estimate)) +
+  geom_point(aes(shape = fsig), size = 5) +
+  geom_errorbar(aes(ymin = Estimate - 1.96 *Std.Error, ymax = Estimate + 1.96 *Std.Error),
+                width = 0.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") + 
+  scale_shape_manual(values = c("Significant" = 16, "Non-significant" = 1)) + 
+  ggtitle("(b) Feasibility") +
+  labs(x = "Action type", y = "Effect size") +
+  theme_light() +
+  theme(plot.title = element_text(size = 18, color = "black", face = "bold")) +
+  theme(legend.position = "none",
+        legend.text = element_text(size = 14, color = "black"),
+        legend.title = element_text(size = 16, color = "black")) +
+  theme(axis.text.x = element_text(size = 16, color = "black"),
+        axis.text.y = element_text(size = 16, color = "black"),
+        axis.title = element_text(size = 18, color = "black"),
+        axis.title.y = element_blank(),
+        axis.line = element_line(color = "black")) +
+  coord_flip()
+
+```
+
+#### Benefit Model
+
+*Benefit as a function of action type and expert as a random effect.*
+
+```{r}
+# Set the contrasts again
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (external)"
+)
+```
+
+```{r}
+#running the first model using wec 
+bmodel_a <- lmer(scale(Benefit) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(bmodel_a)
+bmoda_summary <- summary(bmodel_a)$coefficients #making the model outputs into a dataframe
+bmod_a <- as.data.frame(bmoda_summary)
+print(bmod_a)
+action_types <- rownames(bmoda_summary)
+bmod_a$action_types <- action_types
+action_types_a <- data.frame(bmod_a$action_types)
+```
+
+```{r}
+#now going to change the contrasts to a different action type term (Biodiversity awareness (internal))
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (internal)"
+)
+```
+
+```{r}
+#version 2 of the same model, using Biodiversity awareness (internal) as the wec ref
+bmodel_b <- lmer(scale(Benefit) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(bmodel_b)
+bmodb_summary <- summary(bmodel_b)$coefficients #making the modedl outputs into a dataframe
+bmod_b <- as.data.frame(bmodb_summary)
+print(bmod_b)
+action_types <- rownames(bmodb_summary)
+bmod_b$action_types <- action_types
+action_types_b <- data.frame(bmod_b$action_types)
+```
+
+```{r}
+#merge the action types together so we get all 9 action types in the one dataframe
+action_type <- cbind(action_types_a, action_types_b)
+action_type <- union(action_type$bmod_a.action_types, action_type$bmod_b.action_types)
+unique(action_type)
+
+#remove Action.type from in front of the effect labels
+action_type <- str_remove(action_type, "^Action\\.type\\.wec")
+```
+
+```{r}
+#merging the two model outputs together
+bmod_a$`t value` <- round(bmod_a$`t value`, digits = 3)
+bmod_b$`t value` <- round(bmod_b$`t value`, digits = 3)
+bmod <- merge(bmod_a, bmod_b, by = "t value", all = TRUE)
+```
+
+```{r}
+#combine the columns using ifelse to handle potential NA values
+bmod$Estimate <- ifelse(is.na(bmod$Estimate.x), bmod$Estimate.y, bmod$Estimate.x)
+bmod$Std.Error <- ifelse(is.na(bmod$`Std. Error.x`), bmod$`Std. Error.y`, bmod$`Std. Error.x`)
+bmod$action_types <- ifelse(is.na(bmod$action_types.x), bmod$action_types.y, bmod$action_types.x)
+```
+
+```{r}
+#select the relevant columns to keep
+bmod_data <- bmod[,c("t value", "Estimate", "Std.Error", "action_types")]
+
+
+bmod_data$action_types <- str_remove(bmod_data$action_types, "^Action\\.type\\.wec")
+```
+
+```{r}
+bmod_data <- bmod_data %>% arrange(Estimate)
+bmod_data$action_types <- factor(bmod_data$action_types, levels = bmod_data$action_types)
+
+ggplot(bmod_data, aes(x = action_types, y = Estimate)) +
+  geom_point(shape = 18, size = 3.5) +
+  geom_errorbar(aes(ymin = Estimate - 1.96 *Std.Error, ymax = Estimate + 1.96 *Std.Error),
+                width = 0.2) +
+  labs(x = "Action", y = "Effect size") +
+  theme_light() +
+  theme(legend.position = "bottom") +
+  coord_flip()
+
+#Extract the effect sizes (estimates) and standard error from the model to make a nicer plot
+bmod_data$action_types <- as.character(bmod_data$action_types)
+
+#remove the intercept level
+bmod_data <- bmod_data %>%
+  filter(action_types !="(Intercept)")
+```
+
+```{r}
+#Adding a new column to check if confidence intervals are signficiant so this can be plotted 
+bmod_data <- bmod_data %>%
+  mutate(bsig = ifelse(Estimate - 1.96 *Std.Error > 0 & Estimate + 1.96 *Std.Error > 0 |
+                      Estimate - 1.96 *Std.Error < 0 & Estimate + 1.96 *Std.Error < 0,
+                      "Significant", "Non-significant"))
+```
+
+```{r}
+bmod_data <- bmod_data %>% arrange(Estimate)
+bmod_data$action_types <- factor(bmod_data$action_types, levels = levels(m1_data$action_types))
+
+bmod_plot <- ggplot(bmod_data, aes(x = action_types, y = Estimate)) +
+  geom_point(aes(shape = bsig), size = 5) +
+  geom_errorbar(aes(ymin = Estimate - 1.96 *Std.Error, ymax = Estimate + 1.96 *Std.Error),
+                width = 0.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") + 
+  scale_shape_manual(values = c("Significant" = 16, "Non-significant" = 1)) + 
+  ggtitle("(c) Benefit") +
+  labs(x = "Action type", y = "Effect size") +
+  theme_light() +
+  theme(plot.title = element_text(size = 18, color = "black", face = "bold")) +
+  theme(legend.position = "none",
+        legend.text = element_text(size = 14, color = "black"),
+        legend.title = element_text(size = 16, color = "black")) +
+  theme(axis.text.x = element_text(size = 16, color = "black"),
+        axis.text.y = element_text(size = 16, color = "black"),
+        axis.title = element_text(size = 18, color = "black"),
+        axis.line = element_line(color = "black")) +
+  coord_flip()
+```
+
+#### Cost Model
+
+*Cost (relative) as a function of action type and expert as a random effect.*
+
+```{r}
+# Set the contrasts again
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (external)"
+)
+```
+
+```{r}
+#need to make the factor the inverse for the effect size to make sense
+interview_data$Cost.Indexed <- factor(interview_data$Cost.Indexed, 
+                                            levels = c(3, 2, 1))  # '1' should be low cost, '2' mid cost, '3' high cost
+
+interview_data$Cost.Indexed.num <- as.numeric(interview_data$Cost.Indexed)
+```
+
+```{r}
+#running the first model using wec 
+cmodel_a <- lmer(scale(Cost.Indexed.num) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(cmodel_a)
+cmoda_summary <- summary(cmodel_a)$coefficients #making the model outputs into a dataframe
+cmod_a <- as.data.frame(cmoda_summary)
+print(cmod_a)
+action_types <- rownames(cmoda_summary)
+cmod_a$action_types <- action_types
+action_types_a <- data.frame(cmod_a$action_types)
+```
+
+```{r}
+#now going to change the contrasts to a different action type term (Biodiversity awareness (internal))
+# Make sure your variable is a factor
+interview_data$Action.type.wec <- factor(interview_data$Action.type)
+
+# Apply contr.wec with the correct argument name
+contrasts(interview_data$Action.type.wec) <- contr.wec(
+  interview_data$Action.type.wec,
+  omitted = "Biodiversity awareness (internal)"
+)
+```
+
+```{r}
+#version 2 of the same model, using Biodiversity awareness (internal) as the wec ref
+cmodel_b <- lmer(scale(Cost.Indexed.num) ~ Action.type.wec + (1 | Interviewee), data = interview_data)
+summary(cmodel_b)
+cmodb_summary <- summary(cmodel_b)$coefficients #making the modedl outputs into a dataframe
+cmod_b <- as.data.frame(cmodb_summary)
+print(cmod_b)
+action_types <- rownames(cmodb_summary)
+cmod_b$action_types <- action_types
+action_types_b <- data.frame(cmod_b$action_types)
+```
+
+```{r}
+#merge the action types together so we get all 9 action types in the one dataframe
+action_type <- cbind(action_types_a, action_types_b)
+action_type <- union(action_type$cmod_a.action_types, action_type$cmod_b.action_types)
+unique(action_type)
+
+#remove Action.type from in front of the effect labels
+action_type <- str_remove(action_type, "^Action\\.type\\.wec")
+```
+
+```{r}
+#merging the two model outputs together
+cmod_a$`t value` <- round(cmod_a$`t value`, digits = 3)
+cmod_b$`t value` <- round(cmod_b$`t value`, digits = 3)
+cmod <- merge(cmod_a, cmod_b, by = "t value", all = TRUE)
+```
+
+```{r}
+#combine the columns using ifelse to handle potential NA values
+cmod$Estimate <- ifelse(is.na(cmod$Estimate.x), cmod$Estimate.y, cmod$Estimate.x)
+cmod$Std.Error <- ifelse(is.na(cmod$`Std. Error.x`), cmod$`Std. Error.y`, cmod$`Std. Error.x`)
+cmod$action_types <- ifelse(is.na(cmod$action_types.x), cmod$action_types.y, cmod$action_types.x)
+```
+
+```{r}
+#select the relevant columns to keep
+cmod_data <- cmod[,c("t value", "Estimate", "Std.Error", "action_types")]
+
+
+cmod_data$action_types <- str_remove(cmod_data$action_types, "^Action\\.type\\.wec")
+```
+
+```{r}
+cmod_data <- cmod_data %>% arrange(Estimate)
+cmod_data$action_types <- factor(cmod_data$action_types, levels = cmod_data$action_types)
+
+ggplot(cmod_data, aes(x = action_types, y = Estimate)) +
+  geom_point(shape = 18, size = 3.5) +
+  geom_errorbar(aes(ymin = Estimate - Std.Error, ymax = Estimate + Std.Error),
+                width = 0.2) +
+  labs(x = "Action", y = "Effect size") +
+  theme_light() +
+  theme(legend.position = "bottom") +
+  coord_flip()
+
+#Extract the effect sizes (estimates) and standard error from the model to make a nicer plot
+cmod_data$action_types <- as.character(cmod_data$action_types)
+
+#remove the intercept level
+cmod_data <- cmod_data %>%
+  filter(action_types !="(Intercept)")
+```
+
+```{r}
+#Adding a new column to check if confidence intervals are signficiant so this can be plotted 
+cmod_data <- cmod_data %>%
+  mutate(csig = ifelse(Estimate - 1.96 *Std.Error > 0 & Estimate + 1.96 *Std.Error > 0 |
+                      Estimate - 1.96 *Std.Error < 0 & Estimate + 1.96 *Std.Error < 0,
+                      "Significant", "Non-significant"))
+```
+
+```{r}
+cmod_data <- cmod_data %>% arrange(Estimate)
+cmod_data$action_types <- factor(cmod_data$action_types, levels = levels(m1_data$action_types))
+
+cmod_plot <- ggplot(cmod_data, aes(x = action_types, y = Estimate)) +
+  geom_point(aes(shape = csig), size = 5) +
+  geom_errorbar(aes(ymin = Estimate - 1.96 *Std.Error, ymax = Estimate + 1.96 *Std.Error),
+                width = 0.2) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "red") +
+  scale_shape_manual(values = c("Significant" = 16, "Non-significant" = 1)) + 
+  ggtitle("(d) Cost") +
+  labs(x = "Action type", y = "Effect size") +
+  theme_light() +
+  theme(plot.title = element_text(size = 18, color = "black", face = "bold")) +
+  theme(legend.position = "none",
+        legend.text = element_text(size = 14, color = "black"),
+        legend.title = element_text(size = 16, color = "black")) +
+  theme(axis.text.x = element_text(size = 16, color = "black"),
+        axis.text.y = element_text(size = 16, color = "black"),
+        axis.title = element_text(size = 18, color = "black"),
+        axis.title.y = element_blank(),
+        axis.line = element_line(color = "black")) +
+  coord_flip()
+```
+
+\
+
+```{r}
+plot_grid(m1_plot, fmod_plot, bmod_plot, cmod_plot,
+          ncol = 2,            # 1 column, 4 rows
+          align = "v",         # align vertically
+          axis = "lr",         
+          hjust = -1)    
+
+CEA_parameter_plots <- plot_grid(m1_plot, fmod_plot, bmod_plot, cmod_plot, ncol = 2, align = "v", axis = "lr", hjust = -1) 
+
+ggsave("CEA_parameter_plots.png", plot = CEA_parameter_plots, dpi = 600, width = 16, height = 8, units = "in")
+```
+
+```{r}
+write.csv(m1_data, file = "m1_data.csv")
+write.csv(bmod_data, file = "benefit_model.csv")
+write.csv(fmod_data, file = "feasibility_model.csv")
+write.csv(cmod_data, file = "cost_model.csv")
+```
